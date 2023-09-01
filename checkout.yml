@@ -1,0 +1,35 @@
+- name: Checkout Repo
+  # You may pin to the exact commit or the version.
+  # uses: rohmanngmbh/action-checkout-repo@6d2a1883eb8138b9c9442c604ae5a84e4b1847f2
+  uses: rohmanngmbh/action-checkout-repo@v1.3.4
+  with:
+    # Repository name with owner. For example, actions/checkout
+    repository: # optional, default is ${{ github.repository }}
+    # The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.
+
+    ref: # optional, default is ${{ github.ref }}
+    # The alternative branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event. Otherwise, uses the default branch.
+
+    alt_ref: # optional
+    # Direction of sort in case of a regular expression for your reference. ('top' or 'down') Example: In case if ref=v* with tags v1, v2, v3 you will get v3 as a valid reference
+
+    order: # optional, default is top
+    # Personal access token (PAT) used to fetch the repository. The PAT is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the PAT. We recommend using a service account with the least permissions necessary. Also when generating a new PAT, select the least scopes necessary. [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+
+    token: # optional, default is ${{ github.token }}
+    # Relative path under $GITHUB_WORKSPACE to place the repository
+    path: # optional, default is 
+    # Whether to download Git-LFS files
+    lfs: # optional, default is false
+    # In case of a regular expression matches your selected sha with the head of your default branch: here you can select the behavior. Is the value false (default) the found sha will be taken. Is the value true, the last matching regex before the matching sha will be taken. Example: In case if ref=v* with tags v1, v2, v3 you will get v3 as a valid reference. Is the v3 on the same sha with your main (default branch) and this flag is true. We will switch to v2 (next to last).
+
+    regex_next_to_last: # optional, default is false
+    # Whether to checkout submodules: `true` to checkout submodules or `recursive` to recursively checkout submodules.
+
+    submodules: # optional, default is false
+    # Explicitly include files for LFS
+
+    include: # optional, default is *
+    # Explicitly exclude files for LFS
+
+    exclude: # optional, default is 
